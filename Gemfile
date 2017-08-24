@@ -31,9 +31,13 @@ group :development, :test do
 end
 
 group :development do
-  gem 'pg'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :production do
+  # heroku用db
+  gem 'pg'
 end
 
