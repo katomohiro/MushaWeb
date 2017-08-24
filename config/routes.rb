@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
   root 'static_pages#home'
-  
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

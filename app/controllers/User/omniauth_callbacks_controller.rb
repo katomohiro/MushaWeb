@@ -1,15 +1,20 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def facebook
-    # You need to implement the method below in your model (e.g. app/models/user.rb)
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+  include Devise::Controllers::Rememberable
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
+  def facebook
+    auth = request.env['omniauth.auth']
+    user = User.find_by(
+      provider: auth.provider,
+      uid: auth.uid
+      ) || User.create(
+      provider: auth.provider,
+      uid: auth.uid,
+      name: auth.info.name
+    )
+
+    remember_me(user)
+
+    sign_in_and_redirect user, event: :authentication
   end
 
   def failure
