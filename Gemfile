@@ -37,7 +37,9 @@ group :development do
 end
 
 group :production do
-  # heroku用db
+  # herokuの設定
   gem 'pg'
+  gem 'therubyracer'
+
 end
 
