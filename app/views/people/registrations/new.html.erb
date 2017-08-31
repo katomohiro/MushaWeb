@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>OB/OG登録フォーム</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -27,8 +27,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>
 
 <%= render "people/shared/links" %>
+
+<%= link_to '就活生の方はこちら', new_user_registration_path %>
+

@@ -10,9 +10,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rails-i18n', '~> 5.0.0'
 
 # ログイン機能
 gem 'devise'
+gem 'devise-i18n'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
