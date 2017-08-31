@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user: 就活生
+      person: OB/OG
+    attributes:
+      user:
+        name: 氏名
+        password: パスワード
+        email: メールアドレス
+      person:
+        name: 氏名
+        password: パスワード
+        email: メールアドレス
