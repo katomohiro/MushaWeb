@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926085659) do
+ActiveRecord::Schema.define(version: 20170926091505) do
+
+  create_table "career_industries", force: :cascade do |t|
+    t.integer  "industry_id"
+    t.integer  "career_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["career_id"], name: "index_career_industries_on_career_id"
+    t.index ["industry_id"], name: "index_career_industries_on_industry_id"
+  end
+
+  create_table "career_occupations", force: :cascade do |t|
+    t.integer  "occupation_id"
+    t.integer  "career_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["career_id"], name: "index_career_occupations_on_career_id"
+    t.index ["occupation_id"], name: "index_career_occupations_on_occupation_id"
+  end
 
   create_table "careers", force: :cascade do |t|
     t.integer  "person_id"
