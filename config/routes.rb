@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :careers, only:[:new, :create, :edit]
   devise_for :people, controllers: {
   sessions:      'people/sessions',
   passwords:     'people/passwords',
