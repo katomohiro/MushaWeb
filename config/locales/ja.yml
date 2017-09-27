@@ -12,3 +12,13 @@ ja:
         name: 氏名
         password: パスワード
         email: メールアドレス
+      career:
+        company_name: 会社名
+        industry: 業界
+        occupation: 職種
+  people_manages:
+    home:
+      industries: 業界
+      occupations: 業種
+  
+  

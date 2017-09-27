@@ -1,74 +1,65 @@
 class CareersController < ApplicationController
   before_action :set_career, only: [:show, :edit, :update, :destroy]
+  before_action :set_variable_for_form, only: [:new, :edit]
+  before_action :authenticate_person!, only: [:new, :create, :edit, :update, :destroy]
 
-  # GET /careers
-  # GET /careers.json
-  def index
-    @careers = Career.all
-  end
-
-  # GET /careers/1
-  # GET /careers/1.json
   def show
   end
 
-  # GET /careers/new
   def new
     @career = Career.new
   end
 
-  # GET /careers/1/edit
   def edit
   end
 
-  # POST /careers
-  # POST /careers.json
   def create
     @career = Career.new(career_params)
-
-    respond_to do |format|
-      if @career.save
-        format.html { redirect_to @career, notice: 'Career was successfully created.' }
-        format.json { render :show, status: :created, location: @career }
-      else
-        format.html { render :new }
-        format.json { render json: @career.errors, status: :unprocessable_entity }
-      end
+    associate
+    if @career.save
+      redirect_to people_manage_path(@career.person_id), notice: '職歴が作成されました。' 
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /careers/1
-  # PATCH/PUT /careers/1.json
   def update
-    respond_to do |format|
-      if @career.update(career_params)
-        format.html { redirect_to @career, notice: 'Career was successfully updated.' }
-        format.json { render :show, status: :ok, location: @career }
-      else
-        format.html { render :edit }
-        format.json { render json: @career.errors, status: :unprocessable_entity }
-      end
+    if @career.update(career_params)
+      redirect_to people_manage_path(@career.person_id), notice: '職歴が編集されました。'
+    else
+      render :edit 
     end
   end
 
-  # DELETE /careers/1
-  # DELETE /careers/1.json
   def destroy
     @career.destroy
-    respond_to do |format|
-      format.html { redirect_to careers_url, notice: 'Career was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to people_manage_path(@career.person_id), notice: '職歴が削除されました。' 
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_career
       @career = Career.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def career_params
       params.require(:career).permit(:person_id, :company_name)
+    end
+    
+    def set_variable_for_form
+      @industries = Industry.all
+      @occupations = Occupation.all
+    end
+    
+    def associate
+      # associate_list = ["industry","occupation"]
+      # associate_list.each do |content|
+      #   eval("#{content} = #{content.capitalize}.where(id: params[:#{content}_id])")
+      #   eval("@career.#{content.pluralize} << #{content}")
+      # end
+      industry = Industry.where(id: params[:industry_id])
+      @career.industries << industry
+      occupation = Occupation.where(id: params[:occupation_id])
+      @career.occupations << occupation
     end
 end

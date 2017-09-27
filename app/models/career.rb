@@ -3,10 +3,8 @@ class Career < ApplicationRecord
   belongs_to :person
   
   # 1:n
-  has_many :career_occupation
-  has_many :career_industry
   
   # n:m
-  has_many :occupation, through: :career_occupation
-  has_many :industry, through: :career_industry
+  has_and_belongs_to_many :occupations
+  has_and_belongs_to_many :industries
 end

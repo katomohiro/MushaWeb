@@ -1,6 +1,6 @@
-<h1>Editing Career</h1>
+<h1>職歴を編集</h1>
 
 <%= render 'form', career: @career %>
 
-<%= link_to 'Show', @career %> |
-<%= link_to 'Back', careers_path %>
+<%= link_to '職歴を削除', career_path(@career), :method => :delete, :confirm => '本当に削除しますか？' %> |
+<%= link_to '戻る', people_manage_path(current_person.id) %>

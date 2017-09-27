@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926100050) do
+ActiveRecord::Schema.define(version: 20170927090007) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,20 @@ ActiveRecord::Schema.define(version: 20170926100050) do
     t.string   "company_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "careers_industries", force: :cascade do |t|
+    t.integer "career_id"
+    t.integer "industry_id"
+    t.index ["career_id"], name: "index_careers_industries_on_career_id"
+    t.index ["industry_id"], name: "index_careers_industries_on_industry_id"
+  end
+
+  create_table "careers_occupations", id: false, force: :cascade do |t|
+    t.integer "career_id"
+    t.integer "occupation_id"
+    t.index ["career_id"], name: "index_careers_occupations_on_career_id"
+    t.index ["occupation_id"], name: "index_careers_occupations_on_occupation_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -87,6 +101,7 @@ ActiveRecord::Schema.define(version: 20170926100050) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "area_id"
     t.index ["email"], name: "index_people_on_email", unique: true
     t.index ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
   end
