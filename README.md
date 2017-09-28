@@ -8,31 +8,19 @@ README
 
 # 開発にあたってのTIPS
 開発時に知っておくと便利なことを書いておきます。
+
 ## development環境でサーバー起動
-`rails s -p $PORT -b $IP`
+`rails s -p $PORT -b $IP`  
 これでdevelopment環境のログも確認できる
+
 ## herokuのログが見たい
 `heroku logs --tail`
+
 ## 頻繁にconflictが発生するファイル
 頻繁にconflictするファイルの解消方法
-`# schema.rb`
-`git checkout --theirs db/schema.rb`
-`rails db:migrate`
-`git add db/schema.rb`
-## VS. 
-
-## Requirement
-
-## Usage
-
-## Install
-
-## Contribution
-
-## Licence
-
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
-
-## Author
-
-[tcnksm](https://github.com/tcnksm)
+```
+# schema.rb
+git checkout --theirs db/schema.rb
+rails db:migrate
+git add db/schema.rb
+```
