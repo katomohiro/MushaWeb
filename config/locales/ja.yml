@@ -8,10 +8,20 @@ ja:
         name: 氏名
         password: パスワード
         email: メールアドレス
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        musha_term: 武者修行の参加ターム
+        area_id: 現在お住いの都道府県
       person:
         name: 氏名
         password: パスワード
         email: メールアドレス
+        password_confirmation: 確認用パスワード
+        current_password: 現在のパスワード
+        remember_me: 次回から自動的にログイン
+        other_naite: 学生時代の内定先
+        musha_term: 武者修行の参加ターム
+        area_id: 現在の勤務先
       career:
         company_name: 会社名
         industry: 業界
@@ -19,6 +29,12 @@ ja:
   people_manages:
     home:
       industries: 業界
-      occupations: 業種
-  
+      occupations: 職種
+  users:
+    registrations:
+      edit:
+        industries: 志望業界
+        occupations: 志望職種
+        password_confirmation:
+    
   

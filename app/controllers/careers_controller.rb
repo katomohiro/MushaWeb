@@ -46,11 +46,6 @@ class CareersController < ApplicationController
       params.require(:career).permit(:person_id, :company_name)
     end
     
-    def set_variable_for_form
-      @industries = Industry.all
-      @occupations = Occupation.all
-    end
-    
     def associate
       # associate_list = ["industry","occupation"]
       # associate_list.each do |content|

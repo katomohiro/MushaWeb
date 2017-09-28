@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     current_person.class = "Person"
   end
   
+  def set_variable_for_form
+    @industries = Industry.all
+    @occupations = Occupation.all
+    @areas = Area.all
+  end
+  
   private
     
     def user_sign_in_required
