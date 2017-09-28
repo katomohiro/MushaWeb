@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927090007) do
+ActiveRecord::Schema.define(version: 20170928115153) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -102,6 +102,9 @@ ActiveRecord::Schema.define(version: 20170927090007) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "area_id"
+    t.text     "other_naitei"
+    t.boolean  "is_student"
+    t.string   "musha_term"
     t.index ["email"], name: "index_people_on_email", unique: true
     t.index ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
   end
@@ -123,6 +126,8 @@ ActiveRecord::Schema.define(version: 20170927090007) do
     t.string   "uid"
     t.string   "name"
     t.integer  "admin"
+    t.integer  "area_id"
+    t.string   "musha_term"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
