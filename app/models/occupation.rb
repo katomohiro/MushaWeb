@@ -4,6 +4,7 @@ class Occupation < ApplicationRecord
   # 1:n
 
   # n:m
+  has_and_belongs_to_many :users
   has_and_belongs_to_many :careers
   
 end

@@ -5,21 +5,23 @@ ja:
       person: OB/OG
     attributes:
       user:
-        name: 氏名
+        name: 名前
         password: パスワード
         email: メールアドレス
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
         musha_term: 武者修行の参加ターム
         area_id: 現在お住いの都道府県
+        industry: 志望業界
+        occupation: 志望職種
       person:
-        name: 氏名
+        name: 名前
         password: パスワード
         email: メールアドレス
         password_confirmation: 確認用パスワード
         current_password: 現在のパスワード
         remember_me: 次回から自動的にログイン
-        other_naite: 学生時代の内定先
+        other_naitei: 学生時代の内定先
         musha_term: 武者修行の参加ターム
         area_id: 現在の勤務先
       career:
@@ -28,13 +30,17 @@ ja:
         occupation: 職種
   people_manages:
     home:
+      name: 名前
+      area: 現在の勤務先
+      other_naitei: 学生時代の内定先
       industries: 業界
       occupations: 職種
-  users:
-    registrations:
-      edit:
-        industries: 志望業界
-        occupations: 志望職種
-        password_confirmation:
-    
+  users_manages:
+    home:
+      name: 名前
+      area: 現在お住いの都道府県
+      industries: 志望業界
+      occupations: 志望職種
+        
+
   

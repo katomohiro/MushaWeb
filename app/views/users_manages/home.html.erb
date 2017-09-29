@@ -1,3 +1,25 @@
 <h1>マイページ</h1>
 <p>コンタクトの確認、プロフィールの確認等の機能を実装する予定</p>
 <%= link_to "プロフィールを編集", edit_user_registration_path %>
+
+<h2>プロフィール</h2>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <% @user_colmuns.each do |colmun| %>
+      <tr>
+        <td><%= t (".#{colmun}") %></td>
+        <% case colmun
+          when 'area' %>
+          <td><%= @user.send("#{colmun}").name unless @user.send("#{colmun}").nil? %></td>
+        <% when 'name', 'other_naitei' %>
+          <td><%= @user.send("#{colmun}") %></td>
+        <% when 'industries', 'occupations' %>
+          <% contents = @user.send("#{colmun}") %>
+          <td>
+            <% contents.each do |content| %>
+              <%= content.name %><br>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
