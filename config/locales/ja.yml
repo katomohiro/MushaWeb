@@ -28,6 +28,12 @@ ja:
         company_name: 会社名
         industry: 業界
         occupation: 職種
+      article:
+        title: 見出し
+        description: 記事の説明
+        content: 本文
+        industry: 関連する業界
+        occupation: 関連する職種
   people_manages:
     home:
       name: 名前

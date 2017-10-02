@@ -16,27 +16,7 @@
     <%= f.text_field :company_name %>
   </div>
   
-  <div class="field">
-    <%= f.label :industry %>
-    <%= hidden_field_tag 'industry_id[]' %>
-    <% @industries.each do |industry| %>
-      <label>
-        <%= check_box_tag 'industry_id[]', industry.id, false, :id => "industry_#{industry.id}" %>
-        <%= industry.name %>
-      </label>
-    <% end %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :occupation %>
-    <%= hidden_field_tag 'occupation_id[]' %>
-    <% @occupations.each do |occupation| %>
-      <label>
-        <%= check_box_tag 'occupation_id[]', occupation.id, false, :id => "occupation_#{occupation.id}" %>
-        <%= occupation.name %>
-      </label>
-    <% end %>
-  </div>
+  <%= render :partial => 'shared/form/industries_and_occupations', :locals => {:f => f} %>
   
   <div class="hidden-field">
     <%= f.hidden_field :person_id, :value => current_person.id %>

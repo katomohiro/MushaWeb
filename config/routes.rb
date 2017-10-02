@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :careers, only:[:new, :create, :edit, :destroy]
 
   get 'users/:id/manage' => 'users_manages#home', as: 'users_manage'

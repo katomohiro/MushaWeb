@@ -10,13 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928134217) do
+ActiveRecord::Schema.define(version: 20171002083924) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "region"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "articles_industries", id: false, force: :cascade do |t|
+    t.integer "article_id",  null: false
+    t.integer "industry_id", null: false
+    t.index ["article_id"], name: "index_articles_industries_on_article_id"
+    t.index ["industry_id"], name: "index_articles_industries_on_industry_id"
+  end
+
+  create_table "articles_occupations", id: false, force: :cascade do |t|
+    t.integer "article_id",    null: false
+    t.integer "occupation_id", null: false
+    t.index ["article_id"], name: "index_articles_occupations_on_article_id"
+    t.index ["occupation_id"], name: "index_articles_occupations_on_occupation_id"
   end
 
   create_table "career_industries", force: :cascade do |t|
