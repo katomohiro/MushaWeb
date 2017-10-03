@@ -1,8 +1,8 @@
 <div class="field">
-  <%= f.label :industry_ids %>
+  <%= form.label :industry_ids %>
   <% Industry.all.each do |industry| %>
     <label>
-      <%= f.check_box 'industry_ids', {:id => "industry_#{industry.id}"}, industry.id, false %>
+      <%= form.check_box 'industry_ids', {:id => "industry_#{industry.id}"}, industry.id, false %>
       <%= industry.name %>
     </label>
   <% end %>
