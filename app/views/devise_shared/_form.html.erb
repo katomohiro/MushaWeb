@@ -1,0 +1,45 @@
+<%= render :partial => 'devise_shared/must_register', :locals => {:f => f} %>
+
+<% if is_edit %>
+  
+  <div class="field">
+    <%= f.label :area_id %><br />
+    <%= f.select :area_id, @areas.map { |area| [area.name, area.id] }, :include_blank => true %>
+  </div>
+  
+  <% if model == "User" %>
+    <div class="field">
+      <%= f.label :industry %>
+      <%= hidden_field_tag 'industry_id[]' %>
+      <% @industries.each do |industry| %>
+        <label>
+          <%= check_box_tag 'industry_id[]', industry.id, false, :id => "industry_#{industry.id}" %>
+          <%= industry.name %>
+        </label>
+      <% end %>
+    </div>
+    
+    <div class="field">
+    <%= f.label :occupation %>
+    <%= hidden_field_tag 'occupation_id[]' %>
+    <% @occupations.each do |occupation| %>
+      <label>
+        <%= check_box_tag 'occupation_id[]', occupation.id, false, :id => "occupation_#{occupation.id}" %>
+        <%= occupation.name %>
+      </label>
+    <% end %>
+  </div>
+  
+  <% elsif model == "Person" %>
+    
+    <div class="field">
+      <%= f.label :other_naitei %><br />
+      <%= f.text_area :other_naitei, autofocus: true %>
+    </div>
+    
+  <% end %>
+<% end %>
+
+<%= render :partial => 'devise_shared/password_and_submit', :locals => {:f => f, :model => model, :is_edit => is_edit} %>
+
+

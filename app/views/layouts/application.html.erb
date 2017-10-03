@@ -30,10 +30,10 @@
     <nav>
       <%= link_to 'TOP', root_path %>
       <% if user_signed_in? %>
-        <%= link_to 'プロフィール変更', edit_user_registration_path %>
+        <%= link_to 'マイページ', users_manage_path(current_user.id) %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% elsif person_signed_in? %>
-        <%= link_to 'プロフィール変更', edit_person_registration_path %>
+        <%= link_to 'マイページ', people_manage_path(current_person.id) %>
         <%= link_to 'ログアウト', destroy_person_session_path, method: :delete %>
       <% else %>
         <%= link_to '登録', new_user_registration_path %>

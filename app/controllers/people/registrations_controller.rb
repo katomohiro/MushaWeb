@@ -1,7 +1,8 @@
 class People::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-
+  before_action :set_variable_for_form, only: [:edit]
+  
   # GET /resource/sign_up
   # def new
   #   super
@@ -43,7 +44,7 @@ class People::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :area_id, :other_naitei, :is_student])
   end
 
   # The path used after sign up.

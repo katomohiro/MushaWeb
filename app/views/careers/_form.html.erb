@@ -1,0 +1,28 @@
+<%= form_for(career) do |f| %>
+  <% if career.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(career.errors.count, "error") %> prohibited this career from being saved:</h2>
+
+      <ul>
+      <% career.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name %>
+  </div>
+  
+  <%= render :partial => 'shared/form/industries_and_occupations', :locals => {:f => f} %>
+  
+  <div class="hidden-field">
+    <%= f.hidden_field :person_id, :value => current_person.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

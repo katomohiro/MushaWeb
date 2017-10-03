@@ -1,0 +1,42 @@
+<h1>マイページ</h1>
+<p>コンタクトの確認、プロフィールの確認等の機能を実装する予定</p>
+<h2>メニュー</h2>
+  <ul>
+    <li><%= link_to "職歴を作成", new_career_path %></li>
+    <li><%= link_to "プロフィールを編集", edit_person_registration_path %></li>
+  </ul>
+<h2>プロフィール</h2>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <% @person_colmuns.each do |colmun| %>
+      <tr>
+        <td><%= t (".#{colmun}") %></td>
+        <% case colmun
+          when 'area' %>
+          <td><%= @person.send("#{colmun}").name unless @person.send("#{colmun}").nil? %></td>
+        <% when 'name', 'other_naitei' %>
+          <td><%= @person.send("#{colmun}") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  
+<h2>職歴一覧</h2>
+<% @person.careers.each do |career| %>
+  <h3><%= link_to career.company_name, edit_career_path(career.id) %></h3>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <% @careers_colmuns.each do |colmun| %>
+      <tr>
+        <% case colmun
+          when 'industries', 'occupations' %>
+          <% contents =  eval("career.#{colmun}") %>
+          <td><%= t (".#{colmun}") %></td>
+          <td>
+            <% contents.each do |content| %>
+              <%= content.name %><br>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

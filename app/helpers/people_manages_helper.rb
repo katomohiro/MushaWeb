@@ -1,0 +1,2 @@
+module PeopleManagesHelper
+end
