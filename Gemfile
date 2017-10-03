@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-i18n', '~> 5.0.0'
+gem 'listen', '~> 3.1.5'
 
 # ログイン機能
 gem 'devise'
