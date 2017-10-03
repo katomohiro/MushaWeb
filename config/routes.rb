@@ -6,6 +6,11 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  resources :people do
+    collection do
+      get 'search'
+    end
+  end
   resources :careers, only:[:new, :create, :edit, :destroy]
 
   get 'users/:id/manage' => 'users_manages#home', as: 'users_manage'
