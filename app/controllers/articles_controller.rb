@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
   
   def search
-    if params[:search_articles].nil?
+    if params[:search_article].nil?
       @search = Search::Article.new
     else
       @search = Search::Article.new(search_params)
@@ -77,6 +77,6 @@ class ArticlesController < ApplicationController
     end
     
     def search_params
-      params.require(:search_article).permit(Search::Product::ATTRIBUTES)
+      params.require(:search_article).permit(Search::Article::ATTRIBUTES)
     end
 end
