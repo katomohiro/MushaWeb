@@ -1,0 +1,19 @@
+<div class="field">
+  <%= f.label :industry_ids %>
+  <% Industry.all.each do |industry| %>
+    <label>
+      <%= f.check_box 'industry_ids', {:id => "industry_#{industry.id}"}, industry.id, false %>
+      <%= industry.name %>
+    </label>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= f.label :occupation_ids %>
+  <% Occupation.all.each do |occupation| %>
+    <label>
+      <%= f.check_box 'occupation_ids', {:id => "occupation_#{occupation.id}"}, occupation.id, false %>
+      <%= occupation.name %>
+    </label>
+  <% end %>
+</div>

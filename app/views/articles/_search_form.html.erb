@@ -1,0 +1,14 @@
+<%= form_for(@search, url: search_articles_path, html: { method: :get, class: 'article-search-form', role: 'form' }) do |f| %>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <%= render :partial => 'shared/form/industries_and_occupations_for_search', :locals => {:f => f} %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

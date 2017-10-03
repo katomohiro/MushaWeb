@@ -52,9 +52,9 @@ class CareersController < ApplicationController
       #   eval("#{content} = #{content.capitalize}.where(id: params[:#{content}_id])")
       #   eval("@career.#{content.pluralize} << #{content}")
       # end
-      industry = Industry.where(id: params[:industry_id])
+      industry = Industry.where(id: params[:industry_ids])
       @career.industries << industry
-      occupation = Occupation.where(id: params[:occupation_id])
+      occupation = Occupation.where(id: params[:occupation_ids])
       @career.occupations << occupation
     end
 end

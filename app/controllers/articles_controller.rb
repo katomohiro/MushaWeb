@@ -1,11 +1,20 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :set_variable_for_form, only: [:new, :edit]
+  before_action :set_variable_for_form, only: [:new, :edit, :search]
 
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
+  end
+  
+  def search
+    if params[:search_articles].nil?
+      @search = Search::Article.new
+    else
+      @search = Search::Article.new(search_params)
+      @articles = @search.search    
+    end
   end
 
   # GET /articles/1
@@ -61,9 +70,13 @@ class ArticlesController < ApplicationController
     end
     
     def associate
-      industry = Industry.where(id: params[:industry_id])
+      industry = Industry.where(id: params[:industry_ids])
       @article.industries << industry
-      occupation = Occupation.where(id: params[:occupation_id])
+      occupation = Occupation.where(id: params[:occupation_ids])
       @article.occupations << occupation
+    end
+    
+    def search_params
+      params.require(:search_article).permit(Search::Product::ATTRIBUTES)
     end
 end

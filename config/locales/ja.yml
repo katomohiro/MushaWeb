@@ -3,6 +3,8 @@ ja:
     models:
       user: 就活生
       person: OB/OG
+      contact: コンタクト
+      career: 職歴
     attributes:
       user:
         name: 名前
@@ -34,6 +36,10 @@ ja:
         content: 本文
         industry: 関連する業界
         occupation: 関連する職種
+      search/article:
+        title: 見出しで検索
+        industry_ids: 関連する業界で検索
+        occupation_ids: 関連する職種で検索
   people_manages:
     home:
       name: 名前
@@ -47,6 +53,8 @@ ja:
       area: 現在お住いの都道府県
       industries: 志望業界
       occupations: 志望職種
-        
+  articles:
+    search:
+      
 
   

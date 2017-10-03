@@ -1,9 +1,8 @@
 <div class="field">
   <%= f.label :industry %>
-  <%= hidden_field_tag 'industry_id[]' %>
   <% @industries.each do |industry| %>
     <label>
-      <%= check_box_tag 'industry_id[]', industry.id, false, :id => "industry_#{industry.id}" %>
+      <%= check_box_tag 'industry_ids[]', industry.id, false, :id => "industry_#{industry.id}" %>
       <%= industry.name %>
     </label>
   <% end %>
@@ -11,10 +10,9 @@
 
 <div class="field">
   <%= f.label :occupation %>
-  <%= hidden_field_tag 'occupation_id[]' %>
   <% @occupations.each do |occupation| %>
     <label>
-      <%= check_box_tag 'occupation_id[]', occupation.id, false, :id => "occupation_#{occupation.id}" %>
+      <%= check_box_tag 'occupation_ids[]', occupation.id, false, :id => "occupation_#{occupation.id}" %>
       <%= occupation.name %>
     </label>
   <% end %>

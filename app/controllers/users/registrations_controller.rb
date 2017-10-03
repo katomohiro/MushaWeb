@@ -41,9 +41,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
   
   def associate
-    industry = Industry.where(id: params[:industry_id])
+    industry = Industry.where(id: params[:industry_ids])
     @user.industries << industry
-    occupation = Occupation.where(id: params[:occupation_id])
+    occupation = Occupation.where(id: params[:occupation_ids])
     @user.occupations << occupation
   end
 
