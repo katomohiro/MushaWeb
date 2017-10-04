@@ -17,6 +17,9 @@ gem 'listen', '~> 3.1.5'
 gem 'devise'
 gem 'devise-i18n'
 
+# CMS
+gem "wysiwyg-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
