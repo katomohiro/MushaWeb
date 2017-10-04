@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '5.1.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '= 4.2.2'
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -44,7 +45,6 @@ end
 group :production do
   # herokuの設定
   gem 'pg'
-  gem 'therubyracer'
 
 end
 

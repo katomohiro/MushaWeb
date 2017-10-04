@@ -2,13 +2,12 @@
  *= require_tree .
  *= require_self
  */
-
+ 
 @import "froala_editor.min";
 @import "froala_style.min";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/*プラグイン*/
 @import 'plugins/char_counter.min.css';
 @import 'plugins/code_view.min.css';
 @import 'plugins/colors.min.css';
