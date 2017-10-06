@@ -11,16 +11,19 @@ README
 
 ## development環境でサーバー起動
 `rails s -p $PORT -b $IP`  
-これでdevelopment環境のログも確認できる
+これでdevelopment環境のログも確認できる。
 
 ## herokuのログが見たい
 `heroku logs --tail`
 
 ## 頻繁にconflictが発生するファイル
-頻繁にconflictするファイルの解消方法
+頻繁にconflictするファイルの解消方法。
 ```
 # schema.rb
 git checkout --theirs db/schema.rb
 rails db:migrate
 git add db/schema.rb
 ```
+## デバッグの方法
+pry-byebagというgemを入れてます。使い方はこの辺りを参照。
+<http://ruby-rails.hatenadiary.com/entry/20141024/1414081224>
