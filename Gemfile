@@ -21,6 +21,9 @@ gem 'devise-i18n'
 # CMS
 gem "wysiwyg-rails"
 
+# 権限管理
+gem 'cancancan'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
 
   resources :contacts, only: [:create]
+  
   resources :articles do
     collection do
       get 'search'
     end
   end
-  resources :people do
-    collection do
-      get 'search'
-    end
+  
+  namespace :people do
+    get 'search'
   end
+  
   resources :careers, only:[:new, :create, :edit, :destroy]
 
   get 'users/:id/manage' => 'users_manages#home', as: 'users_manage'
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  devise_for :admins, only: :sessions
   
   root 'static_pages#home'
 end
