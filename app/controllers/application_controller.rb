@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
   
   private
     
+    def admin_sign_in_required
+      redirect_to new_admin_session_url unless admin_signed_in?
+    end
+    
     def user_sign_in_required
       redirect_to new_user_session_url unless user_signed_in?
     end

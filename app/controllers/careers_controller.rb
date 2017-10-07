@@ -1,7 +1,8 @@
 class CareersController < ApplicationController
   before_action :set_career, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!, only: [:new, :create]
+  before_action :authenticate_person_for_career!, only: [:edit, :update, :destroy]
   before_action :set_variable_for_form, only: [:new, :edit]
-  before_action :authenticate_person!, only: [:new, :create, :edit, :update, :destroy]
 
   def show
   end
@@ -37,7 +38,11 @@ class CareersController < ApplicationController
   end
 
   private
-    
+  
+    def authenticate_person_for_career!
+      redirect_to root_url, alert: 'そのURLへのアクセス権限がありません。' unless current_person == @career.person
+    end
+      
     def set_career
       @career = Career.find(params[:id])
     end

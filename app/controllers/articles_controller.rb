@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  prepend_before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_variable_for_form, only: [:new, :edit, :search]
 
